@@ -55,7 +55,7 @@
       <label>पूरा पता *</label>
       <textarea name="address" required placeholder="गाँव, पोस्ट, जिला आदि" rows="3" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;"></textarea>
 
-      <button type="button" style="width:100%;padding:15px;background:#5b171b;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;">
+      <button type="submit" style="width:100%;padding:15px;background:#5b171b;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;">
         WhatsApp पर आवेदन भेजें
       </button>
     </form>
@@ -64,7 +64,7 @@
 </section>
 
 <script>
-document.getElementById("admissionForm").addEventListener("submit", function(e) {
+document.getElementById("admissionForm").addEventListener("button", function(e) {
   e.preventDefault();
   const f = new FormData(this);
   const msg =
