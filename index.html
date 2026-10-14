@@ -17,4 +17,79 @@
 <section class="section" id="admission"><h2>प्रवेश संबंधी जानकारी</h2><p>प्रवेश, कक्षा, आवश्यक दस्तावेज़ और समय-सारिणी की पुष्टि विद्यालय प्रशासन से करें। नीचे दिया गया फॉर्म केवल प्रारूप है और अभी किसी सर्वर पर जानकारी नहीं भेजता।</p><div class="panel"><form id="admissionForm"><div class="formrow"><div><label for="student">विद्यार्थी का नाम</label><input id="student" required placeholder="पूरा नाम"></div><div><label for="guardian">अभिभावक का नाम</label><input id="guardian" required placeholder="अभिभावक का नाम"></div></div><div class="formrow"><div><label for="class">जिस कक्षा में प्रवेश चाहिए</label><select id="class" required><option value="">कक्षा चुनें</option><option>कक्षा 1–5</option><option>कक्षा 6–8</option><option>कक्षा 9–10</option><option>अन्य / पुष्टि आवश्यक</option></select></div><div><label for="phone">मोबाइल नंबर</label><input id="phone" inputmode="tel" placeholder="मोबाइल नंबर"></div></div><button class="btn" type="submit">जानकारी जाँचें</button><div class="noticebox" id="formMsg">यह डेमो फॉर्म है। कोई जानकारी भेजी या सेव नहीं हुई है। कृपया विद्यालय से सीधे संपर्क करें।</div></form></div></section>
 <section class="cta" id="contact"><h2>सुमन संस्कृत विद्यापीठ</h2><p>इटियाथोक, गोंडा, उत्तर प्रदेश · पिन कोड 271202</p><p>विद्यालय का फोन नंबर और आधिकारिक ईमेल सत्यापित होने के बाद यहाँ जोड़े जा सकते हैं।</p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Suman+Sanskrit+Viddya+Peeth+Parasaray+Itiyathok+Gonda" target="_blank" rel="noopener">📍 मैप पर देखें</a></section></main>
 <footer class="footer"><div>© <span id="year"></span> सुमन संस्कृत विद्यापीठ, इटियाथोक, गोंडा</div><div>॥ सर्वे भवन्तु सुखिनः ॥</div><div>शिक्षा • संस्कार • उज्ज्वल भविष्य</div></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();document.getElementById('admissionForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('formMsg').style.display='block'});document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.navlinks').classList.remove('show')));</script></body></html>
+<script>document.getElementById('year').textContent=new Date().getFullYear();document.getElementById('admissionForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('formMsg').style.display='block'});document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.navlinks').classList.remove('show')));</script>
+<!-- ADMISSION FORM SECTION -->
+<section id="admission" style="padding:30px 16px;background:#fff8e8;font-family:Arial,sans-serif;">
+  <div style="max-width:600px;margin:auto;">
+    <h2 style="text-align:center;color:#5b171b;">🎓 प्रवेश आवेदन 2026–27</h2>
+    <p style="text-align:center;">सुमन संस्कृत विद्यापीठ, इटियाथोक, गोंडा</p>
+
+    <form id="admissionForm">
+      <label>विद्यार्थी का पूरा नाम *</label>
+      <input name="student" required placeholder="अपना पूरा नाम लिखें" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+
+      <label>पिता/माता का नाम *</label>
+      <input name="parent" required placeholder="पिता या माता का नाम" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+
+      <label>मोबाइल नंबर *</label>
+      <input name="mobile" type="tel" pattern="[0-9]{10}" required placeholder="10 अंकों का मोबाइल नंबर" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+
+      <label>जन्मतिथि</label>
+      <input name="dob" type="date" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+
+      <label>प्रवेश की कक्षा *</label>
+      <select name="class" required style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+        <option value="">कक्षा चुनें</option>
+        <option>कक्षा 6</option>
+        <option>कक्षा 7</option>
+        <option>कक्षा 8</option>
+        <option>कक्षा 9</option>
+        <option>कक्षा 10</option>
+        <option>कक्षा 11</option>
+        <option>कक्षा 12</option>
+      </select>
+
+      <label>पिछली कक्षा / प्राप्त अंक</label>
+      <input name="previous" placeholder="पिछली कक्षा और अंक" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+
+      <label>पूरा पता *</label>
+      <textarea name="address" required placeholder="गाँव, पोस्ट, जिला आदि" rows="3" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;"></textarea>
+
+      <button type="submit" style="width:100%;padding:15px;background:#5b171b;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;">
+        WhatsApp पर आवेदन भेजें
+      </button>
+    </form>
+    <p style="font-size:13px;color:#555;">आवेदन भेजने से पहले WhatsApp में खुलने वाले संदेश को जाँचकर Send दबाएँ।</p>
+  </div>
+</section>
+
+<script>
+document.getElementById("admissionForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const f = new FormData(this);
+  const msg =
+    "सुमन संस्कृत विद्यापीठ - प्रवेश आवेदन 2026-27%0A" +
+    "विद्यार्थी: " + encodeURIComponent(f.get("student")) + "%0A" +
+    "पिता/माता: " + encodeURIComponent(f.get("parent")) + "%0A" +
+    "मोबाइल: " + encodeURIComponent(f.get("mobile")) + "%0A" +
+    "जन्मतिथि: " + encodeURIComponent(f.get("dob") || "नहीं दी गई") + "%0A" +
+    "प्रवेश कक्षा: " + encodeURIComponent(f.get("class")) + "%0A" +
+    "पिछली कक्षा/अंक: " + encodeURIComponent(f.get("previous") || "नहीं दिए") + "%0A" +
+    "पता: " + encodeURIComponent(f.get("address"));
+
+  window.open("https://wa.me/919838143303?text=" + msg, "_blank");
+});
+</script>
+
+<!-- CONTACT DETAILS -->
+<section id="contact" style="padding:30px 16px;background:#5b171b;color:white;font-family:Arial,sans-serif;">
+  <div style="max-width:600px;margin:auto;">
+    <h2>📞 संपर्क करें</h2>
+    <p><strong>सुमन संस्कृत विद्यापीठ</strong></p>
+    <p>📍 इटियाथोक, गोंडा, उत्तर प्रदेश</p>
+    <p>📱 <a href="tel:9838143303" style="color:#ffd45c;">9838143303</a></p>
+    <p>✉️ <a href="mailto:sumansanskritcollege1991@gmail.com" style="color:#ffd45c;overflow-wrap:anywhere;">sumansanskritcollege1991@gmail.com</a></p>
+    <p><a href="https://www.google.com/maps/search/?api=1&query=Itiyathok%2C+Gonda%2C+Uttar+Pradesh" style="color:#ffd45c;">📍 Google Maps पर स्थान देखें</a></p>
+  </div>
+</section>
+/bod<y></html>
