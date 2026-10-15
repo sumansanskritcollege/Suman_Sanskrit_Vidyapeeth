@@ -57,8 +57,9 @@ style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
 <textarea name="address" required placeholder="गाँव, पोस्ट, जिला आदि" rows="3"
 style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;"></textarea>
 
+
 <button type="button" onclick="sendAdmission()"
-style="display:block;width:100%;padding:15px;background:#128C7E;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;">
+style="width:100%;padding:15px;background:#128C7E;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;">
 WhatsApp पर आवेदन भेजें
 </button>
 
@@ -66,25 +67,22 @@ WhatsApp पर आवेदन भेजें
 function sendAdmission() {
   const form = document.getElementById("admissionForm");
 
-  if (!form.reportValidity()) return;
+  if (!form || !form.reportValidity()) return;
 
   const f = form.elements;
-
   const msg =
     "सुमन संस्कृत विद्यापीठ - प्रवेश आवेदन 2026-27\n" +
-    "विद्यार्थी का नाम: " + f["student"].value + "\n" +
-    "पिता/माता का नाम: " + f["parent"].value + "\n" +
-    "मोबाइल नंबर: " + f["mobile"].value + "\n" +
+    "विद्यार्थी: " + f["student"].value + "\n" +
+    "पिता/माता: " + f["parent"].value + "\n" +
+    "मोबाइल: " + f["mobile"].value + "\n" +
     "जन्मतिथि: " + (f["dob"].value || "नहीं दी गई") + "\n" +
-    "प्रवेश की कक्षा: " + f["class"].value + "\n" +
+    "कक्षा: " + f["class"].value + "\n" +
     "पिछली कक्षा/अंक: " + (f["previous"].value || "नहीं दिए") + "\n" +
-    "पूरा पता: " + f["address"].value;
+    "पता: " + f["address"].value;
 
-  const url =
+  window.location.href =
     "https://wa.me/919838143303?text=" +
     encodeURIComponent(msg);
-
-  window.location.href = url;
 }
 </script>
 
