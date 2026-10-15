@@ -1,144 +1,479 @@
 
-<!-- प्रवेश आवेदन फॉर्म: पुराने दोनों फॉर्म हटाकर यह पूरा भाग लगाएँ -->
-<section id="admission" class="admission-section">
-  <h2>🎓 प्रवेश आवेदन 2026–27</h2>
-  <p>सुमन संस्कृत विद्यापीठ, इटियाथोक, गोंडा</p>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#78350f">
 
-  <form id="admissionForm">
-    <label for="student">विद्यार्थी का पूरा नाम *</label>
-    <input id="student" name="student" required maxlength="100"
-      placeholder="अपना पूरा नाम लिखें">
+  <title>सुमन संस्कृत विद्यापीठ | प्रवेश 2026–27</title>
+  <meta name="description"
+    content="सुमन संस्कृत विद्यापीठ, इटियाथोक, गोंडा की वेबसाइट। प्रवेश जानकारी और आवेदन के लिए संपर्क करें।">
 
-    <label for="parent">पिता/माता का नाम *</label>
-    <input id="parent" name="parent" required maxlength="100"
-      placeholder="अभिभावक का नाम">
+  <style>
+    :root {
+      --brown: #78350f;
+      --saffron: #b45309;
+      --cream: #fffaf0;
+      --green: #128c7e;
+      --ink: #292524;
+      --muted: #57534e;
+      --border: #e7d9c5;
+    }
 
-    <label for="mobile">मोबाइल नंबर *</label>
-    <input id="mobile" name="mobile" type="tel"
-      inputmode="numeric" pattern="[6-9][0-9]{9}"
-      maxlength="10" required placeholder="10 अंकों का नंबर">
+    * { box-sizing: border-box; }
 
-    <label for="dob">जन्मतिथि</label>
-    <input id="dob" name="dob" type="date">
+    html { scroll-behavior: smooth; }
 
-    <label for="class">प्रवेश की कक्षा *</label>
-    <select id="class" name="class" required>
-      <option value="">कक्षा चुनें</option>
-      <option>कक्षा 1</option>
-      <option>कक्षा 2</option>
-      <option>कक्षा 3</option>
-      <option>कक्षा 4</option>
-      <option>कक्षा 5</option>
-      <option>कक्षा 6</option>
-      <option>कक्षा 7</option>
-      <option>कक्षा 8</option>
-      <option>कक्षा 9</option>
-      <option>कक्षा 10</option>
-      <option>कक्षा 11</option>
-      <option>कक्षा 12</option>
-    </select>
+    body {
+      margin: 0;
+      font-family: system-ui, "Noto Sans Devanagari",
+        "Mangal", sans-serif;
+      color: var(--ink);
+      background: #fffdf8;
+      line-height: 1.7;
+    }
 
-    <label for="previous">पिछली कक्षा / प्राप्त अंक</label>
-    <input id="previous" name="previous" maxlength="100"
-      placeholder="जैसे: कक्षा 9 / 498 अंक">
+    a { color: inherit; }
 
-    <label for="address">पूरा पता *</label>
-    <textarea id="address" name="address" required
-      maxlength="300" rows="3" placeholder="गाँव, पोस्ट, जिला"></textarea>
+    .container {
+      width: min(1080px, 92%);
+      margin: auto;
+    }
 
-    <button type="submit" class="whatsapp-btn">
-      WhatsApp पर आवेदन भेजें
-    </button>
+    header {
+      background: var(--brown);
+      color: white;
+      padding: 18px 0;
+    }
 
-    <p class="form-note">
-      WhatsApp में आवेदन जाँचें और भेजने के लिए Send दबाएँ।
-    </p>
-    <p id="formStatus" role="status" aria-live="polite"></p>
-  </form>
-</section>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-<style>
-.admission-section {
-  max-width: 600px;
-  margin: 24px auto;
-  padding: 20px;
-  box-sizing: border-box;
-  border-radius: 16px;
-  background: #fffaf0;
-  box-shadow: 0 4px 18px #00000012;
-}
-.admission-section h2 {
-  text-align: center;
-  color: #78350f;
-}
-.admission-section label {
-  display: block;
-  margin-top: 14px;
-  font-weight: 600;
-}
-.admission-section input,
-.admission-section select,
-.admission-section textarea {
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: 6px;
-  padding: 12px;
-  border: 1px solid #d6c8ad;
-  border-radius: 8px;
-  font: inherit;
-  background: white;
-}
-.whatsapp-btn {
-  width: 100%;
-  margin-top: 20px;
-  padding: 14px;
-  border: 0;
-  border-radius: 8px;
-  background: #128C7E;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.form-note {
-  font-size: 13px;
-  color: #555;
-}
-</style>
+    .brand-icon { font-size: 36px; }
 
-<script>
-document.getElementById("admissionForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+    .brand h1 {
+      font-size: clamp(20px, 4vw, 29px);
+      margin: 0;
+      line-height: 1.4;
+    }
 
-  const form = e.currentTarget;
-  if (!form.reportValidity()) return;
+    .brand p {
+      margin: 4px 0 0;
+      font-size: 14px;
+      color: #ffedd5;
+    }
 
-  const data = new FormData(form);
-  const fields = [
-    ["विद्यार्थी का नाम", "student"],
-    ["पिता/माता का नाम", "parent"],
-    ["मोबाइल नंबर", "mobile"],
-    ["जन्मतिथि", "dob"],
-    ["प्रवेश की कक्षा", "class"],
-    ["पिछली कक्षा / अंक", "previous"],
-    ["पूरा पता", "address"]
-  ];
+    nav {
+      background: #ffedd5;
+      border-bottom: 1px solid var(--border);
+    }
 
-  const message = [
-    "नमस्ते, सुमन संस्कृत विद्यापीठ में प्रवेश आवेदन।",
-    "",
-    ...fields.map(([label, key]) =>
-      label + ": " + (data.get(key) || "नहीं दिया गया")
-    )
-  ].join("\n");
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      padding: 10px 0;
+    }
 
-  const url = "https://wa.me/919838143303?text="
-    + encodeURIComponent(message);
+    nav a {
+      text-decoration: none;
+      color: var(--brown);
+      font-weight: 650;
+      padding: 5px 0;
+    }
 
-  document.getElementById("formStatus").textContent =
-    "WhatsApp खुलने पर आवेदन जाँचकर Send दबाएँ।";
+    nav a:hover { text-decoration: underline; }
 
-  window.location.href = url;
-});
+    .hero {
+      padding: 55px 0;
+      text-align: center;
+      background: linear-gradient(135deg, #fff7e6, #fef3c7);
+    }
+
+    .hero h2 {
+      color: var(--brown);
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.35;
+      margin: 0 0 12px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 12px auto 22px;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .btn-primary {
+      background: var(--brown);
+      color: white;
+    }
+
+    .btn-whatsapp {
+      width: 100%;
+      background: var(--green);
+      color: white;
+      margin-top: 18px;
+    }
+
+    .section { padding: 36px 0; }
+
+    .section h2 {
+      color: var(--brown);
+      font-size: 27px;
+      margin: 0 0 12px;
+    }
+
+    .intro {
+      max-width: 760px;
+      color: var(--muted);
+    }
+
+    .notice {
+      padding: 16px;
+      border-left: 4px solid var(--saffron);
+      background: var(--cream);
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .form-card {
+      max-width: 700px;
+      margin: auto;
+      padding: clamp(18px, 4vw, 32px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 8px 28px #78350f0d;
+    }
+
+    .form-card > p { color: var(--muted); }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .field { min-width: 0; }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-weight: 650;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid #cfc3b2;
+      border-radius: 8px;
+      background: white;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #d97706;
+      outline-offset: 2px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .help, .form-note {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #formStatus {
+      margin: 12px 0 0;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-box {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    footer {
+      margin-top: 24px;
+      padding: 22px 0;
+      background: var(--brown);
+      color: white;
+      text-align: center;
+    }
+
+    footer p { margin: 5px 0; }
+
+    @media (max-width: 600px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .nav-inner { gap: 6px 16px; }
+      .hero { padding: 38px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="home">
+    <div class="container brand">
+      <span class="brand-icon" aria-hidden="true">🪔</span>
+      <div>
+        <h1>सुमन संस्कृत विद्यापीठ</h1>
+        <p>इटियाथोक, गोंडा, उत्तर प्रदेश</p>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="मुख्य मेन्यू">
+    <div class="container nav-inner">
+      <a href="#home">होम</a>
+      <a href="#about">विद्यालय परिचय</a>
+      <a href="#admission">प्रवेश आवेदन</a>
+      <a href="#contact">संपर्क करें</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>विद्या, संस्कार और संस्कृति</h2>
+        <p>
+          सुमन संस्कृत विद्यापीठ में प्रवेश संबंधी जानकारी
+          प्राप्त करने और आवेदन भेजने के लिए नीचे दिया गया
+          फॉर्म भरें।
+        </p>
+        <a class="btn btn-primary" href="#admission">
+          प्रवेश के लिए आवेदन करें
+        </a>
+      </div>
+    </section>
+
+    <section class="section container" id="about">
+      <h2>विद्यालय का परिचय</h2>
+      <p class="intro">
+        सुमन संस्कृत विद्यापीठ की वेबसाइट पर आपका स्वागत है।
+        प्रवेश, कक्षाओं और विद्यालय संबंधी जानकारी के लिए
+        विद्यालय से संपर्क करें।
+      </p>
+      <div class="notice">
+        <strong>प्रवेश सत्र 2026–27</strong>
+        <p>
+          आवेदन भेजने से पहले सभी विवरण सही भरें।
+          प्रवेश की पुष्टि विद्यालय द्वारा की जाएगी।
+        </p>
+      </div>
+    </section>
+
+    <section class="section container" id="admission">
+      <div class="form-card">
+        <h2>प्रवेश आवेदन फॉर्म</h2>
+        <p>
+          सभी आवश्यक जानकारी भरें। बटन दबाने पर WhatsApp
+          में संदेश खुलेगा। आवेदन भेजने के लिए वहाँ Send दबाएँ।
+        </p>
+
+        <form id="admissionForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="student">विद्यार्थी का पूरा नाम *</label>
+              <input id="student" name="student"
+                required maxlength="100" autocomplete="name">
+            </div>
+
+            <div class="field">
+              <label for="parent">पिता/माता का नाम *</label>
+              <input id="parent" name="parent"
+                required maxlength="100">
+            </div>
+
+            <div class="field">
+              <label for="mobile">अभिभावक का मोबाइल नंबर *</label>
+              <input id="mobile" name="mobile" type="tel"
+                inputmode="numeric" pattern="[6-9][0-9]{9}"
+                maxlength="10" minlength="10" required>
+              <p class="help">भारत का 10 अंकों का मोबाइल नंबर</p>
+            </div>
+
+            <div class="field">
+              <label for="dob">जन्मतिथि</label>
+              <input id="dob" name="dob" type="date">
+            </div>
+
+            <div class="field">
+              <label for="class">प्रवेश की कक्षा *</label>
+              <select id="class" name="class" required>
+                <option value="">कक्षा चुनें</option>
+                <option value="कक्षा 1">कक्षा 1</option>
+                <option value="कक्षा 2">कक्षा 2</option>
+                <option value="कक्षा 3">कक्षा 3</option>
+                <option value="कक्षा 4">कक्षा 4</option>
+                <option value="कक्षा 5">कक्षा 5</option>
+                <option value="कक्षा 6">कक्षा 6</option>
+                <option value="कक्षा 7">कक्षा 7</option>
+                <option value="कक्षा 8">कक्षा 8</option>
+                <option value="कक्षा 9">कक्षा 9</option>
+                <option value="कक्षा 10">कक्षा 10</option>
+                <option value="कक्षा 11">कक्षा 11</option>
+                <option value="कक्षा 12">कक्षा 12</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="previous">पिछली कक्षा / अंक</label>
+              <input id="previous" name="previous"
+                maxlength="100" placeholder="जैसे: कक्षा 9 / 498 अंक">
+            </div>
+
+            <div class="field full">
+              <label for="address">पूरा पता *</label>
+              <textarea id="address" name="address"
+                required maxlength="300"
+                autocomplete="street-address"></textarea>
+            </div>
+          </div>
+
+          <button class="btn btn-whatsapp" type="submit">
+            WhatsApp पर आवेदन भेजें
+          </button>
+
+          <p class="form-note">
+            यह फॉर्म वेबसाइट पर आवेदन का स्थायी रिकॉर्ड नहीं रखता।
+            WhatsApp में विवरण देखकर स्वयं संदेश भेजें।
+          </p>
+          <p id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section container" id="contact">
+      <h2>संपर्क करें</h2>
+      <div class="contact-box">
+        <p><strong>विद्यालय:</strong> सुमन संस्कृत विद्यापीठ</p>
+        <p><strong>स्थान:</strong> इटियाथोक, गोंडा, उत्तर प्रदेश</p>
+        <p>
+          <strong>WhatsApp:</strong>
+          <a href="https://wa.me/919838143303"
+             target="_blank" rel="noopener noreferrer">
+            विद्यालय से WhatsApp पर संपर्क करें
+          </a>
+        </p>
+        <p class="help">
+          प्रकाशित करने से पहले विद्यालय का सही पता और संपर्क
+          नंबर अवश्य सत्यापित करें।
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 सुमन संस्कृत विद्यापीठ</p>
+      <p>विद्या • संस्कार • संस्कृति</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById("admissionForm");
+      const status = document.getElementById("formStatus");
+      const params = new URLSearchParams(window.location.search);
+
+      // URL में मौजूद जानकारी फॉर्म में भरें।
+      const keys = [
+        "student", "parent", "mobile", "dob",
+        "class", "previous", "address"
+      ];
+
+      keys.forEach(function (key) {
+        const field = document.getElementById(key);
+        const value = params.get(key);
+
+        if (!field || value === null) return;
+
+        // URL से आई जानकारी भी लंबाई की सीमा में रखें।
+        const cleaned = value.trim().slice(0, 300);
+
+        if (field.tagName === "SELECT") {
+          const matchingOption = Array.from(field.options)
+            .find(function (option) {
+              return option.value === cleaned;
+            });
+
+          if (matchingOption) field.value = matchingOption.value;
+        } else {
+          field.value = cleaned;
+        }
+      });
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        status.textContent = "";
+
+        if (!form.reportValidity()) return;
+
+        const data = new FormData(form);
+        const phone = String(data.get("mobile") || "").trim();
+
+        if (!/^[6-9]\d{9}$/.test(phone)) {
+          status.textContent =
+            "कृपया सही 10 अंकों का मोबाइल नंबर भरें।";
+          return;
+        }
+
+        const fields = [
+          ["विद्यार्थी का नाम", "student"],
+          ["पिता/माता का नाम", "parent"],
+          ["अभिभावक का मोबाइल नंबर", "mobile"],
+          ["जन्मतिथि", "dob"],
+          ["प्रवेश की कक्षा", "class"],
+          ["पिछली कक्षा / अंक", "previous"],
+          ["पता", "address"]
+        ];
+
+        const lines = [
+          "नमस्ते, सुमन संस्कृत विद्यापीठ में प्रवेश के लिए आवेदन।",
+          "",
+          ...fields.map(function (item) {
+            const value = String(data.get(item[1]) || "").trim();
+            return item[0] + ": " + (value || "नहीं दिया गया");
+          })
+        ];
+
+        const whatsappUrl =
+          "https://wa.me/919838143303?text=" +
+          encodeURIComponent(lines.join("\n"));
+
+        status.textContent =
+          "WhatsApp खोल रहे हैं। संदेश जाँचकर Send दबाएँ।";
+
+        window.location.href = whatsappUrl;
+      });
+    })();
   </script>
-                                                               
+</body>
+                </html>
+  
