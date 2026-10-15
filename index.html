@@ -48,24 +48,27 @@
         <option>कक्षा 11</option>
         <option>कक्षा 12</option>
       </select>
+      
+<label>पिछली कक्षा / प्राप्त अंक</label>
+<input name="previous" placeholder="पिछली कक्षा और अंक"
+style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
 
-      <label>पिछली कक्षा / प्राप्त अंक</label>
-      <input name="previous" placeholder="पिछली कक्षा और अंक" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+<label>पूरा पता *</label>
+<textarea name="address" required placeholder="गाँव, पोस्ट, जिला आदि" rows="3"
+style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;"></textarea>
 
-      <label>पूरा पता *</label>
-      <textarea name="address" required placeholder="गाँव, पोस्ट, जिला आदि" rows="3" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;"></textarea>
-
-<button type="button" onclick="alert('Button working!')">
+<a href="https://wa.me/919838143303?text=Namaste%2C%20mujhe%20Suman%20Sanskrit%20Vidyapeeth%20mein%20pravesh%20ke%20liye%20jankari%20chahiye."
+target="_blank" rel="noopener noreferrer"
+style="display:block;width:100%;padding:15px;background:#128C7E;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;text-align:center;text-decoration:none;box-sizing:border-box;">
 WhatsApp पर आवेदन भेजें
-  style="width:100%;padding:15px;background:#5b171b;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;">
-  WhatsApp पर आवेदन भेजें
-</button>
-    </form>
-    <p style="font-size:13px;color:#555;">आवेदन भेजने से पहले WhatsApp में खुलने वाले संदेश को जाँचकर Send दबाएँ।</p>
-  </div>
-</section>
+</a>
+</form>
 
-<script>
+<p style="font-size:13px;color:#555;">
+आवेदन भेजने से पहले WhatsApp में खुलने वाले संदेश को जाँचकर Send दबाएँ।
+</p>
+</div>
+</section>
 function sendAdmission() {
   const form = document.getElementById("admissionForm");
 
