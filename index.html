@@ -77,8 +77,15 @@ document.getElementById("admissionForm").addEventListener("submit", function(e) 
     "पिछली कक्षा/अंक: " + encodeURIComponent(f.get("previous") || "नहीं दिए") + "%0A" +
     "पता: " + encodeURIComponent(f.get("address"));
 
-  window.location.href =
-  "https://wa.me/919838143303?text=" + msg;
+const url = "https://wa.me/919838143303?text=" + msg;
+const link = document.createElement("a");
+link.href = url;
+link.target = "_blank";
+link.rel = "noopener";
+document.body.appendChild(link);
+link.click();
+link.remove();
+
 });
 </script>
 
