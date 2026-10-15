@@ -19,86 +19,150 @@
 <footer class="footer"><div>© <span id="year"></span> सुमन संस्कृत विद्यापीठ, इटियाथोक, गोंडा</div><div>॥ सर्वे भवन्तु सुखिनः ॥</div><div>शिक्षा • संस्कार • उज्ज्वल भविष्य</div></footer>
 <script>document.getElementById('year').textContent=new Date().getFullYear();document.getElementById('admissionForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('formMsg').style.display='block'});document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.navlinks').classList.remove('show')));</script>
 <!-- ADMISSION FORM SECTION -->
-<section id="admission" style="padding:30px 16px;background:#fff8e8;font-family:Arial,sans-serif;">
-  <div style="max-width:600px;margin:auto;">
-    <h2 style="text-align:center;color:#5b171b;">🎓 प्रवेश आवेदन 2026–27</h2>
-    <p style="text-align:center;">सुमन संस्कृत विद्यापीठ, इटियाथोक, गोंडा</p>
 
-    <<form id="admissionForm" onsubmit="return false;">
-      <label>विद्यार्थी का पूरा नाम *</label>
-      <input name="student" required placeholder="अपना पूरा नाम लिखें" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+<!-- प्रवेश आवेदन फॉर्म: पुराने दोनों फॉर्म हटाकर यह पूरा भाग लगाएँ -->
+<section id="admission" class="admission-section">
+  <h2>🎓 प्रवेश आवेदन 2026–27</h2>
+  <p>सुमन संस्कृत विद्यापीठ, इटियाथोक, गोंडा</p>
 
-      <label>पिता/माता का नाम *</label>
-      <input name="parent" required placeholder="पिता या माता का नाम" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+  <form id="admissionForm">
+    <label for="student">विद्यार्थी का पूरा नाम *</label>
+    <input id="student" name="student" required maxlength="100"
+      placeholder="अपना पूरा नाम लिखें">
 
-      <label>मोबाइल नंबर *</label>
-      <input name="mobile" type="tel" pattern="[0-9]{10}" required placeholder="10 अंकों का मोबाइल नंबर" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+    <label for="parent">पिता/माता का नाम *</label>
+    <input id="parent" name="parent" required maxlength="100"
+      placeholder="अभिभावक का नाम">
 
-      <label>जन्मतिथि</label>
-      <input name="dob" type="date" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+    <label for="mobile">मोबाइल नंबर *</label>
+    <input id="mobile" name="mobile" type="tel"
+      inputmode="numeric" pattern="[6-9][0-9]{9}"
+      maxlength="10" required placeholder="10 अंकों का नंबर">
 
-      <label>प्रवेश की कक्षा *</label>
-      <select name="class" required style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
-        <option value="">कक्षा चुनें</option>
-        <option>कक्षा 6</option>
-        <option>कक्षा 7</option>
-        <option>कक्षा 8</option>
-        <option>कक्षा 9</option>
-        <option>कक्षा 10</option>
-        <option>कक्षा 11</option>
-        <option>कक्षा 12</option>
-      </select>
-      
-<label>पिछली कक्षा / प्राप्त अंक</label>
-<input name="previous" placeholder="पिछली कक्षा और अंक"
-style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+    <label for="dob">जन्मतिथि</label>
+    <input id="dob" name="dob" type="date">
 
-<label>पूरा पता *</label>
-<textarea name="address" required placeholder="गाँव, पोस्ट, जिला आदि" rows="3"
-style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;"></textarea>
+    <label for="class">प्रवेश की कक्षा *</label>
+    <select id="class" name="class" required>
+      <option value="">कक्षा चुनें</option>
+      <option>कक्षा 1</option>
+      <option>कक्षा 2</option>
+      <option>कक्षा 3</option>
+      <option>कक्षा 4</option>
+      <option>कक्षा 5</option>
+      <option>कक्षा 6</option>
+      <option>कक्षा 7</option>
+      <option>कक्षा 8</option>
+      <option>कक्षा 9</option>
+      <option>कक्षा 10</option>
+      <option>कक्षा 11</option>
+      <option>कक्षा 12</option>
+    </select>
 
+    <label for="previous">पिछली कक्षा / प्राप्त अंक</label>
+    <input id="previous" name="previous" maxlength="100"
+      placeholder="जैसे: कक्षा 9 / 498 अंक">
 
-<button type="button" onclick="sendAdmission()">
-  WhatsApp पर आवेदन भेजें
-</button>
+    <label for="address">पूरा पता *</label>
+    <textarea id="address" name="address" required
+      maxlength="300" rows="3" placeholder="गाँव, पोस्ट, जिला"></textarea>
 
-</form>  <p style="font-size:13px;color:#555;">  
-आवेदन भेजने से पहले WhatsApp में खुलने वाले संदेश को जाँचकर Send दबाएँ।  
-</p>  
-</div>  
-</section>  
+    <button type="submit" class="whatsapp-btn">
+      WhatsApp पर आवेदन भेजें
+    </button>
 
+    <p class="form-note">
+      WhatsApp में आवेदन जाँचें और भेजने के लिए Send दबाएँ।
+    </p>
+    <p id="formStatus" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
+<style>
+.admission-section {
+  max-width: 600px;
+  margin: 24px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: #fffaf0;
+  box-shadow: 0 4px 18px #00000012;
+}
+.admission-section h2 {
+  text-align: center;
+  color: #78350f;
+}
+.admission-section label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 600;
+}
+.admission-section input,
+.admission-section select,
+.admission-section textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 6px;
+  padding: 12px;
+  border: 1px solid #d6c8ad;
+  border-radius: 8px;
+  font: inherit;
+  background: white;
+}
+.whatsapp-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #128C7E;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.form-note {
+  font-size: 13px;
+  color: #555;
+}
+</style>
 
 <script>
-function sendAdmission() {
-  const form = document.getElementById("admissionForm");
+document.getElementById("admissionForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-  if (!form) {
-    alert("फॉर्म नहीं मिला।");
-    return;
-  }
-
+  const form = e.currentTarget;
   if (!form.reportValidity()) return;
 
   const data = new FormData(form);
+  const fields = [
+    ["विद्यार्थी का नाम", "student"],
+    ["पिता/माता का नाम", "parent"],
+    ["मोबाइल नंबर", "mobile"],
+    ["जन्मतिथि", "dob"],
+    ["प्रवेश की कक्षा", "class"],
+    ["पिछली कक्षा / अंक", "previous"],
+    ["पूरा पता", "address"]
+  ];
 
-  const msg = [
-    "सुमन संस्कृत विद्यापीठ - प्रवेश आवेदन 2026-27",
-    "विद्यार्थी: " + data.get("student"),
-    "पिता/माता: " + data.get("parent"),
-    "मोबाइल: " + data.get("mobile"),
-    "जन्मतिथि: " + (data.get("dob") || "नहीं दी गई"),
-    "कक्षा: " + data.get("class"),
-    "पिछली कक्षा/अंक: " + (data.get("previous") || "नहीं दिए"),
-    "पता: " + data.get("address")
+  const message = [
+    "नमस्ते, सुमन संस्कृत विद्यापीठ में प्रवेश आवेदन।",
+    "",
+    ...fields.map(([label, key]) =>
+      label + ": " + (data.get(key) || "नहीं दिया गया")
+    )
   ].join("\n");
 
-  const url = "https://wa.me/919838143303?text=" +
-              encodeURIComponent(msg);
+  const url = "https://wa.me/919838143303?text="
+    + encodeURIComponent(message);
 
-  window.open(url, "_blank");
-}
+  document.getElementById("formStatus").textContent =
+    "WhatsApp खुलने पर आवेदन जाँचकर Send दबाएँ।";
+
+  window.location.href = url;
+});
 </script>
+
 </body>
 </html>
 
