@@ -62,32 +62,26 @@
     <p style="font-size:13px;color:#555;">आवेदन भेजने से पहले WhatsApp में खुलने वाले संदेश को जाँचकर Send दबाएँ।</p>
   </div>
 </section>
-
+  
 <script>
 document.getElementById("admissionForm").addEventListener("submit", function(e) {
   e.preventDefault();
-  const f = new FormData(this);
-  const msg =
-    "सुमन संस्कृत विद्यापीठ - प्रवेश आवेदन 2026-27%0A" +
-    "विद्यार्थी: " + encodeURIComponent(f.get("student")) + "%0A" +
-    "पिता/माता: " + encodeURIComponent(f.get("parent")) + "%0A" +
-    "मोबाइल: " + encodeURIComponent(f.get("mobile")) + "%0A" +
-    "जन्मतिथि: " + encodeURIComponent(f.get("dob") || "नहीं दी गई") + "%0A" +
-    "प्रवेश कक्षा: " + encodeURIComponent(f.get("class")) + "%0A" +
-    "पिछली कक्षा/अंक: " + encodeURIComponent(f.get("previous") || "नहीं दिए") + "%0A" +
-    "पता: " + encodeURIComponent(f.get("address"));
 
-const url = "https://wa.me/919838143303?text=" + msg;
-sessionStorage.setItem("admissionDraft", JSON.stringify({
-  student: f.get("student"),
-  parent: f.get("parent"),
-  mobile: f.get("mobile"),
-  dob: f.get("dob"),
-  className: f.get("class"),
-  previous: f.get("previous"),
-  address: f.get("address")
-}));
-window.open(url, "_blank");
+  const f = this;
+  const msg =
+    "सुमन संस्कृत विद्यापीठ - प्रवेश आवेदन 2026-27\n" +
+    "विद्यार्थी: " + f.elements["student"].value + "\n" +
+    "पिता/माता: " + f.elements["parent"].value + "\n" +
+    "मोबाइल: " + f.elements["mobile"].value + "\n" +
+    "जन्मतिथि: " + (f.elements["dob"].value || "नहीं दी गई") + "\n" +
+    "प्रवेश कक्षा: " + f.elements["class"].value + "\n" +
+    "पिछली कक्षा/अंक: " + (f.elements["previous"].value || "नहीं दिए") + "\n" +
+    "पता: " + f.elements["address"].value;
+
+  const url = "https://wa.me/919838143303?text=" +
+              encodeURIComponent(msg);
+
+  window.location.assign(url);
 });
 </script>
 
