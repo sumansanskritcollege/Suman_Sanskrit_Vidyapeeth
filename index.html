@@ -57,41 +57,28 @@ style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
 <textarea name="address" required placeholder="गाँव, पोस्ट, जिला आदि" rows="3"
 style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;"></textarea>
 
-<a href="https://wa.me/919838143303?text=Namaste%2C%20mujhe%20Suman%20Sanskrit%20Vidyapeeth%20mein%20pravesh%20ke%20liye%20jankari%20chahiye."
-target="_blank" rel="noopener noreferrer"
-style="display:block;width:100%;padding:15px;background:#128C7E;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;text-align:center;text-decoration:none;box-sizing:border-box;">
+<button type="button" onclick="sendAdmission()"
+style="display:block;width:100%;padding:15px;background:#128C7E;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;">
 WhatsApp पर आवेदन भेजें
-</a>
-</form>
+</button>
 
-<p style="font-size:13px;color:#555;">
-आवेदन भेजने से पहले WhatsApp में खुलने वाले संदेश को जाँचकर Send दबाएँ।
-</p>
-</div>
-</section>
+<script>
 function sendAdmission() {
   const form = document.getElementById("admissionForm");
 
-  if (!form) {
-    alert("आवेदन फॉर्म नहीं मिला।");
-    return;
-  }
-
-  if (!form.reportValidity()) {
-    return;
-  }
+  if (!form.reportValidity()) return;
 
   const f = form.elements;
 
   const msg =
     "सुमन संस्कृत विद्यापीठ - प्रवेश आवेदन 2026-27\n" +
-    "विद्यार्थी: " + f["student"].value.trim() + "\n" +
-    "पिता/माता: " + f["parent"].value.trim() + "\n" +
-    "मोबाइल: " + f["mobile"].value.trim() + "\n" +
+    "विद्यार्थी का नाम: " + f["student"].value + "\n" +
+    "पिता/माता का नाम: " + f["parent"].value + "\n" +
+    "मोबाइल नंबर: " + f["mobile"].value + "\n" +
     "जन्मतिथि: " + (f["dob"].value || "नहीं दी गई") + "\n" +
-    "प्रवेश कक्षा: " + f["class"].value + "\n" +
-    "पिछली कक्षा/अंक: " + (f["previous"].value.trim() || "नहीं दिए") + "\n" +
-    "पता: " + f["address"].value.trim();
+    "प्रवेश की कक्षा: " + f["class"].value + "\n" +
+    "पिछली कक्षा/अंक: " + (f["previous"].value || "नहीं दिए") + "\n" +
+    "पूरा पता: " + f["address"].value;
 
   const url =
     "https://wa.me/919838143303?text=" +
