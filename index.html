@@ -58,9 +58,8 @@ style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
 style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;"></textarea>
 
 
-<button type="button" onclick="sendAdmission()"
-style="width:100%;padding:15px;background:#128C7E;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;">
-WhatsApp पर आवेदन भेजें
+<button type="button" onclick="sendAdmission()">
+  WhatsApp पर आवेदन भेजें
 </button>
 
 </form>  <p style="font-size:13px;color:#555;">  
@@ -69,37 +68,40 @@ WhatsApp पर आवेदन भेजें
 </div>  
 </section>  
 
+
 <script>
 function sendAdmission() {
   const form = document.getElementById("admissionForm");
 
   if (!form) {
-    alert("आवेदन फॉर्म नहीं मिला।");
+    alert("फॉर्म नहीं मिला।");
     return;
   }
 
   if (!form.reportValidity()) return;
 
-  const f = form.elements;
-  const msg =
-    "सुमन संस्कृत विद्यापीठ - प्रवेश आवेदन 2026-27\n" +
-    "विद्यार्थी: " + f["student"].value + "\n" +
-    "पिता/माता: " + f["parent"].value + "\n" +
-    "मोबाइल: " + f["mobile"].value + "\n" +
-    "जन्मतिथि: " + (f["dob"].value || "नहीं दी गई") + "\n" +
-    "कक्षा: " + f["class"].value + "\n" +
-    "पिछली कक्षा/अंक: " + (f["previous"].value || "नहीं दिए") + "\n" +
-    "पता: " + f["address"].value;
+  const data = new FormData(form);
 
-  const url =
-    "https://wa.me/919838143303?text=" +
-    encodeURIComponent(msg);
+  const msg = [
+    "सुमन संस्कृत विद्यापीठ - प्रवेश आवेदन 2026-27",
+    "विद्यार्थी: " + data.get("student"),
+    "पिता/माता: " + data.get("parent"),
+    "मोबाइल: " + data.get("mobile"),
+    "जन्मतिथि: " + (data.get("dob") || "नहीं दी गई"),
+    "कक्षा: " + data.get("class"),
+    "पिछली कक्षा/अंक: " + (data.get("previous") || "नहीं दिए"),
+    "पता: " + data.get("address")
+  ].join("\n");
 
-  window.location.assign(url);
+  const url = "https://wa.me/919838143303?text=" +
+              encodeURIComponent(msg);
+
+  window.open(url, "_blank");
 }
 </script>
 </body>
 </html>
+
 
 <!-- CONTACT DETAILS -->
 <section id="contact" style="padding:30px 16px;background:#5b171b;color:white;font-family:Arial,sans-serif;">
