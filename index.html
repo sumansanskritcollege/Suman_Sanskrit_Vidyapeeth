@@ -55,38 +55,47 @@
       <label>पूरा पता *</label>
       <textarea name="address" required placeholder="गाँव, पोस्ट, जिला आदि" rows="3" style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;"></textarea>
 
-      <button type="submit" style="width:100%;padding:15px;background:#5b171b;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;">
-        WhatsApp पर आवेदन भेजें
-      </button>
+      <button
+  type="button"
+  onclick="sendAdmission()"
+  style="width:100%;padding:15px;background:#5b171b;color:white;border:0;border-radius:8px;font-size:17px;font-weight:bold;">
+  WhatsApp पर आवेदन भेजें
+</button>
     </form>
     <p style="font-size:13px;color:#555;">आवेदन भेजने से पहले WhatsApp में खुलने वाले संदेश को जाँचकर Send दबाएँ।</p>
   </div>
 </section>
 
 <script>
-const form = document.getElementById("admissionForm");
+function sendAdmission() {
+  const form = document.getElementById("admissionForm");
 
-if (form) {
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
+  if (!form) {
+    alert("आवेदन फॉर्म नहीं मिला।");
+    return;
+  }
 
-    const f = form.elements;
+  if (!form.reportValidity()) {
+    return;
+  }
 
-    const msg =
-      "सुमन संस्कृत विद्यापीठ - प्रवेश आवेदन 2026-27\n" +
-      "विद्यार्थी: " + f["student"].value + "\n" +
-      "पिता/माता: " + f["parent"].value + "\n" +
-      "मोबाइल: " + f["mobile"].value + "\n" +
-      "जन्मतिथि: " + (f["dob"].value || "नहीं दी गई") + "\n" +
-      "प्रवेश कक्षा: " + f["class"].value + "\n" +
-      "पिछली कक्षा/अंक: " + (f["previous"].value || "नहीं दिए") + "\n" +
-      "पता: " + f["address"].value;
+  const f = form.elements;
 
-    const url = "https://wa.me/919838143303?text=" +
-      encodeURIComponent(msg);
+  const msg =
+    "सुमन संस्कृत विद्यापीठ - प्रवेश आवेदन 2026-27\n" +
+    "विद्यार्थी: " + f["student"].value.trim() + "\n" +
+    "पिता/माता: " + f["parent"].value.trim() + "\n" +
+    "मोबाइल: " + f["mobile"].value.trim() + "\n" +
+    "जन्मतिथि: " + (f["dob"].value || "नहीं दी गई") + "\n" +
+    "प्रवेश कक्षा: " + f["class"].value + "\n" +
+    "पिछली कक्षा/अंक: " + (f["previous"].value.trim() || "नहीं दिए") + "\n" +
+    "पता: " + f["address"].value.trim();
 
-    window.open(url, "_blank");
-  });
+  const url =
+    "https://wa.me/919838143303?text=" +
+    encodeURIComponent(msg);
+
+  window.location.href = url;
 }
 </script>
 
@@ -101,4 +110,5 @@ if (form) {
     <p><a href="https://www.google.com/maps/search/?api=1&query=Itiyathok%2C+Gonda%2C+Uttar+Pradesh" style="color:#ffd45c;">📍 Google Maps पर स्थान देखें</a></p>
   </div>
 </section>
-/bod<y></html>
+</body>
+</html>
