@@ -78,14 +78,16 @@ document.getElementById("admissionForm").addEventListener("submit", function(e) 
     "पता: " + encodeURIComponent(f.get("address"));
 
 const url = "https://wa.me/919838143303?text=" + msg;
-const link = document.createElement("a");
-link.href = url;
-link.target = "_blank";
-link.rel = "noopener";
-document.body.appendChild(link);
-link.click();
-link.remove();
-
+sessionStorage.setItem("admissionDraft", JSON.stringify({
+  student: f.get("student"),
+  parent: f.get("parent"),
+  mobile: f.get("mobile"),
+  dob: f.get("dob"),
+  className: f.get("class"),
+  previous: f.get("previous"),
+  address: f.get("address")
+}));
+window.open(url, "_blank");
 });
 </script>
 
