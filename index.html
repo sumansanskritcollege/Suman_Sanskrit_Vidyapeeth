@@ -64,15 +64,10 @@
 </section>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("admissionForm");
+const form = document.getElementById("admissionForm");
 
-  if (!form) {
-    alert("फॉर्म नहीं मिला।");
-    return;
-  }
-
-  form.addEventListener("submit", function (e) {
+if (form) {
+  form.addEventListener("submit", function(e) {
     e.preventDefault();
 
     const f = form.elements;
@@ -87,13 +82,12 @@ document.addEventListener("DOMContentLoaded", function () {
       "पिछली कक्षा/अंक: " + (f["previous"].value || "नहीं दिए") + "\n" +
       "पता: " + f["address"].value;
 
-    const url =
-      "https://wa.me/919838143303?text=" +
+    const url = "https://wa.me/919838143303?text=" +
       encodeURIComponent(msg);
 
-    window.location.href = url;
+    window.open(url, "_blank");
   });
-});
+}
 </script>
 
 <!-- CONTACT DETAILS -->
